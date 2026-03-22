@@ -1,9 +1,6 @@
 /**
  * Formats a BigInt wei amount into a readable token string.
  * e.g.  100000000000000000000n  →  "100.00"
- *
- * LESSON: ERC20 tokens store amounts in "wei" — the smallest unit.
- * 1 token = 1 * 10^18 wei.  We divide to get the human number.
  */
 export function formatTokenAmount(wei: bigint, decimals = 18): string {
   const divisor = BigInt(10 ** decimals)

@@ -8,7 +8,7 @@ import { TransferPanel } from '../components/TransferPanel'
 import { MintPanel }     from '../components/MintPanel'
 import { TokenInfo }     from '../components/TokenInfo'
 import { useContract }   from '../hooks/useContract'
-import { formatTokenAmount, shortenAddress } from '../utils/format'
+import { formatTokenAmount } from '../utils/format'
 import { BLOCK_EXPLORER_URL } from '../utils/constants'
 
 
@@ -45,6 +45,11 @@ export default function Dashboard() {
     { id: 'transfer', label: '↗ Transfer' },
     ...(isOwner ? [{ id: 'mint' as Tab, label: '⚡ Mint' }] : []),
   ]
+
+
+console.log('contract address:', import.meta.env.VITE_CONTRACT_ADDRESS)
+console.log('rpc url:', import.meta.env.VITE_SEPOLIA_RPC)
+
 
   return (
     <div className="dashboard">
@@ -114,13 +119,17 @@ export default function Dashboard() {
           </div>
 
           {/* Tab panels */}
+
           {activeTab === 'faucet' && (
+            <>
+            {console.log('isLoading:', isLoading, '| canRequest:', userStats?.canRequest, '| secondsUntilNext:', userStats?.secondsUntilNext?.toString())}
             <FaucetPanel
               canRequest={userStats?.canRequest ?? false}
               secondsUntilNext={secondsUntilNext}
               isLoading={isLoading}
               onRequest={requestToken}
             />
+            </>
           )}
           {activeTab === 'transfer' && (
             <TransferPanel
@@ -159,7 +168,7 @@ export default function Dashboard() {
           )}
         </section>
 
-        {/* ── Token info ── */}
+        {/*  Token info  */}
         {tokenStats && (
           <section className="card">
             <h2 className="card-title">Token Info</h2>

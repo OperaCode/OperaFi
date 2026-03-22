@@ -1,12 +1,8 @@
-/* ============================================================
-   FaucetToken — Global Styles
-   Dark terminal aesthetic: deep navy + electric green
-   Fonts: Space Mono (headings/mono) + DM Sans (body)
-   ============================================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-/* ── Reset & base ─────────────────────────────────────────── */
+/* Reset & base  */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -37,7 +33,7 @@ body {
 
 strong { color: var(--text); }
 
-/* ── Keyframe animations ──────────────────────────────────── */
+/* Keyframe animations*/
 @keyframes glow {
   0%, 100% { box-shadow: 0 0 20px rgba(0,229,160,.15); }
   50%       { box-shadow: 0 0 44px rgba(0,229,160,.38); }
@@ -63,9 +59,7 @@ strong { color: var(--text); }
   100% { left: 130%; }
 }
 
-/* ══════════════════════════════════════════════════════════
-   LANDING PAGE
-   ══════════════════════════════════════════════════════════ */
+/* LANDING PAGE */
 .landing {
   position: relative;
   min-height: 100vh;
@@ -267,9 +261,7 @@ strong { color: var(--text); }
 .feat-title { font-size: 13px; font-weight: 600; margin-bottom: 5px; }
 .feat-desc  { font-size: 11px; color: var(--dim); line-height: 1.55; }
 
-/* ══════════════════════════════════════════════════════════
-   DASHBOARD
-   ══════════════════════════════════════════════════════════ */
+/* DASHBOARD */
 .dashboard { display: flex; flex-direction: column; min-height: 100vh; }
 
 /* Header */

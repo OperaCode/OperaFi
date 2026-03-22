@@ -1,10 +1,10 @@
-import { CooldownBadge } from './CooldownBadge'
+import { CooldownBadge } from "./CooldownBadge";
 
 interface FaucetPanelProps {
-  canRequest:       boolean
-  secondsUntilNext: number
-  isLoading:        boolean
-  onRequest:        () => void
+  canRequest: boolean;
+  secondsUntilNext: number;
+  isLoading: boolean;
+  onRequest: () => void;
 }
 
 export function FaucetPanel({
@@ -19,7 +19,6 @@ export function FaucetPanel({
         Claim <strong>100 OPX</strong> every 24 hours, completely free.
       </p>
 
-      {/* Per-user countdown — independent for every wallet address */}
       <CooldownBadge secondsUntilNext={secondsUntilNext} />
 
       <button
@@ -27,8 +26,8 @@ export function FaucetPanel({
         onClick={onRequest}
         disabled={isLoading || !canRequest}
       >
-        {isLoading ? 'Confirming…' : 'Request 100 OPX'}
+        {isLoading ? "Confirming…" : "Request 100 OPX"}
       </button>
     </div>
-  )
+  );
 }

@@ -1,15 +1,7 @@
-// ============================================================
-// LESSON: useCountdown hook
-//
-// This hook manages the live countdown timer.
-// It takes the seconds remaining from the contract and
-// ticks down every second using setInterval.
-//
-// KEY INSIGHT: The countdown is CLIENT-SIDE only.
-// The contract gives us the seconds remaining RIGHT NOW.
-// We then count down locally — no repeated contract calls needed.
-// This means each user sees THEIR OWN timer without affecting others.
-// ============================================================
+
+
+// This hook manages the live countdown timer. It takes the seconds remaining from the contract and ticks down every second using setInterval.
+
 
 import { useState, useEffect, useRef } from "react";
 import { formatCountdown } from "../utils/format";
@@ -18,8 +10,7 @@ export function useCountdown(initialSeconds: number) {
   const [remaining, setRemaining] = useState(initialSeconds);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Reset timer whenever the initial value changes
-  // (e.g. after a successful requestToken call, secondsUntilNext resets to 86400)
+  // Reset timer whenever the initial value changes(e.g. after a successful requestToken call, secondsUntilNext resets to 86400)
   useEffect(() => {
     setRemaining(initialSeconds);
   }, [initialSeconds]);
